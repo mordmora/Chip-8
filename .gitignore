@@ -1,0 +1,35 @@
+# Carpetas de compilación
+build/
+bin/
+obj/
+out/
+
+# Archivos generados por CMake (si compilas en la raíz)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.cmake
+!CMakeLists.txt
+
+# Archivos objeto y ejecutables
+*.exe
+*.o
+*.obj
+*.lib
+*.dll
+*.a
+*.pdb
+*.ilk
+*.exp
+
+# Archivos de Visual Studio / VS Code
+.vscode/
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

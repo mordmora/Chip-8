@@ -243,7 +243,6 @@ void chip8_fetch_decode_exec(chip8_t *cpu){
             uint8_t yy = (cpu->v[y] % CHIP8_DISPLAY_HEIGHT);
 
             for(int i = 0; i < n; i++){
-
                 if(yy + i > CHIP8_DISPLAY_HEIGHT) break;
 
                 uint8_t pixel = cpu->mem[cpu->I + i];
@@ -251,18 +250,13 @@ void chip8_fetch_decode_exec(chip8_t *cpu){
                 for(int j = 0; j < 8; j++){
 
                     if(xx + j > CHIP8_DISPLAY_WIDTH) break;
-
                     uint8_t bit = (pixel >> (7 - j)) & 1;
-                    
                     if(bit == 1){//dibuja
-
                         uint16_t real_idx = ( (yy+i) * CHIP8_DISPLAY_WIDTH) + (xx+j);
 
                         if(cpu->pixels[real_idx] == 1)//colision
                             cpu->v[0xF] = 1;
-
                         cpu->pixels[real_idx] ^= 1;
-
                     }
                 }
             }

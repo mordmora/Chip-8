@@ -94,18 +94,17 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        // Ciclo de CPU
-        for (int i = 0; i < 10; i++) { // Bajado a 10 para probar estabilidad, sube si va lento
+        for (int i = 0; i < 10; i++) {
             chip8_fetch_decode_exec(&cpu);
         }
 
         if (cpu.delay > 0) cpu.delay--;
         if (cpu.sound > 0) {
             cpu.sound--;
-            // printf("\a"); // Comentado: El beep de consola puede frenar la ejecución
+
         }
 
-        // 1. ACTUALIZAR TEXTURA (Solo si Chip8 cambió algo)
+
         if (cpu.should_draw) {
             for (int i = 0; i < 2048; i++) {
                 uint8_t pixel = cpu.pixels[i];
@@ -116,14 +115,19 @@ int main(int argc, char* argv[]) {
             cpu.should_draw = false;
         }
 
-        // 2. DIBUJAR EN PANTALLA (SIEMPRE, en cada frame)
-        // Esto elimina el parpadeo gráfico
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
         SDL_RenderCopy(renderer, texture, NULL, NULL);
         SDL_RenderPresent(renderer);
 
-        SDL_Delay(16); // ~60 FPS
+        SDL_Delay(16); //60 FPS (mas o menos)
+    }
+
+    end = 1;
+
+    if (thread != NULL) {
+        WaitForSingleObject(thread, 1000);
+        CloseHandle(thread);
     }
 
     SDL_DestroyTexture(texture);
