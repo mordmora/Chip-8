@@ -1,0 +1,3 @@
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/sdl2-populate.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/ZERO_CHECK.dir

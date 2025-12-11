@@ -67,8 +67,6 @@ void chip8_fetch_decode_exec(chip8_t *cpu){
     //Fetch
     uint16_t opcode = (cpu->mem[cpu->PC] << 8) | cpu->mem[cpu->PC+1];
 
-    fprintf(stdout, "[OK] PC: %04X, FETCH: %04X\n", cpu->PC, opcode);
-
     //Decode
     uint8_t op = (opcode & 0xF000) >> 12;
     cpu->PC+=2;

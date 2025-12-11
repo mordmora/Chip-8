@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/sdl2-populate"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/c0c9a55ad17eafd69615a5dd600d468e/sdl2-populate.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/7696ec994553bb0f80a5736c3ceb26d6/sdl2-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/MordMora/Documents/Programaci\u00f3n/C++/Chip-8/build/_deps/sdl2-subbuild/CMakeFiles/13b31979873677195bdd965001fbf9a1/sdl2-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"sdl2-populate"
+		],
+		"name" : "sdl2-populate"
+	}
+}

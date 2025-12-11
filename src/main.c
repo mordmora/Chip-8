@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "chip8.h" 
+#include <Windows.h>
+#include <conio.h>
 
 const uint8_t keymap[16] = {
     SDL_SCANCODE_X, SDL_SCANCODE_1, SDL_SCANCODE_2, SDL_SCANCODE_3,
@@ -9,6 +11,32 @@ const uint8_t keymap[16] = {
     SDL_SCANCODE_S, SDL_SCANCODE_D, SDL_SCANCODE_Z, SDL_SCANCODE_C,
     SDL_SCANCODE_4, SDL_SCANCODE_R, SDL_SCANCODE_F, SDL_SCANCODE_V
 };
+
+unsigned int end = 0;
+
+void set_cursor_pos(int x, int y) {
+    COORD coord = { x, y };
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+DWORD WINAPI log_cpu_status(LPVOID lparams){
+    chip8_t* cpu = (chip8_t*)lparams;
+
+    system("cls");
+
+    while(!end){
+        set_cursor_pos(0, 0); 
+
+        printf("PC: 0x%04X   SP: 0x%02X\n", cpu->PC, cpu->SP);
+        printf("------------------------\n");
+        for (int i = 0; i < 16; i++) {
+            printf("V%X: 0x%04X  ", i, cpu->v[i]);
+            if ((i + 1) % 4 == 0) printf("\n");
+        }
+        Sleep(100);
+    }
+    return 0;
+}
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -47,6 +75,12 @@ int main(int argc, char* argv[]) {
     bool running = true;
     SDL_Event event;
 
+    HANDLE thread = CreateThread(NULL, 0, log_cpu_status, &cpu, 0, NULL);
+
+    if(thread == NULL){
+        printf("[WARNING] Failed to create log thread.\n");
+    }
+
     while (running) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) running = false;
@@ -60,30 +94,36 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        for (int i = 0; i < 30; i++) {
+        // Ciclo de CPU
+        for (int i = 0; i < 10; i++) { // Bajado a 10 para probar estabilidad, sube si va lento
             chip8_fetch_decode_exec(&cpu);
         }
 
         if (cpu.delay > 0) cpu.delay--;
         if (cpu.sound > 0) {
             cpu.sound--;
-            printf("\a"); 
+            // printf("\a"); // Comentado: El beep de consola puede frenar la ejecución
         }
 
+        // 1. ACTUALIZAR TEXTURA (Solo si Chip8 cambió algo)
         if (cpu.should_draw) {
             for (int i = 0; i < 2048; i++) {
                 uint8_t pixel = cpu.pixels[i];
-                pixels[i] = (pixel == 1) ? 0x00FF00FF : 0x000000FF; 
+                // Formato RGBA8888: R, G, B, A
+                pixels[i] = (pixel) ? 0xFFFFFFFF : 0x000000FF; 
             }
-
             SDL_UpdateTexture(texture, NULL, pixels, 64 * sizeof(uint32_t));
-            SDL_RenderClear(renderer);
-            SDL_RenderCopy(renderer, texture, NULL, NULL);
-            SDL_RenderPresent(renderer);
-            cpu.should_draw = 0;
+            cpu.should_draw = false;
         }
 
-        SDL_Delay(16);
+        // 2. DIBUJAR EN PANTALLA (SIEMPRE, en cada frame)
+        // Esto elimina el parpadeo gráfico
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+        SDL_RenderCopy(renderer, texture, NULL, NULL);
+        SDL_RenderPresent(renderer);
+
+        SDL_Delay(16); // ~60 FPS
     }
 
     SDL_DestroyTexture(texture);

@@ -1,0 +1,10 @@
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/CMakeFiles/chip8.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-build/CMakeFiles/sdl_headers_copy.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-build/CMakeFiles/SDL2main.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-build/CMakeFiles/SDL2.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-build/CMakeFiles/SDL2-static.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-build/CMakeFiles/SDL2_test.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-build/CMakeFiles/uninstall.dir
+C:/Users/MordMora/Documents/Programación/C++/Chip-8/build/_deps/sdl2-build/CMakeFiles/ALL_BUILD.dir
